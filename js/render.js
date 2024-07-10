@@ -75,7 +75,7 @@ async function renderMenu() {
       // 메뉴 링크 클릭 시 이벤트 중지 후 menu 내용을 읽어와 contents 영역에 렌더링
       event.preventDefault();
 
-      if (menu.name === "blog.md") {
+      if (menu.name === "diary.md") {
         if (blogList.length === 0) {
           // 블로그 리스트 로딩
           initDataBlogList().then(() => {
@@ -626,7 +626,7 @@ async function initialize() {
     
     TODO: URL 파싱 결과 상세 블로그나 메뉴상태이면 검색 버튼을 누르기 전까지는 initDataBlogList()를 실행시킬 필요 없음. 이를 통해 API 호출 한 번을 아낄 수 있음.
     */
-  if (!url.search.split("=")[1] || url.search.split("=")[1] === "blog.md") {
+  if (!url.search.split("=")[1] || url.search.split("=")[1] === "diary.md") {
     // 메뉴 로딩
     await initDataBlogMenu();
     renderMenu();
