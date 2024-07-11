@@ -1,5 +1,5 @@
 ![diary](img/blog/diary.jpeg)
-# July 10th, 2024
+# July 9th, 2024
 
 ### Korean
 오늘부터 매일 루틴에 한 가지를 추가하기로 했다. 바로 짧은 영어 일기 쓰기다. 
