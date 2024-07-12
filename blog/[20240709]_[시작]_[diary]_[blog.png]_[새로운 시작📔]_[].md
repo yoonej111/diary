@@ -17,7 +17,3 @@ Even though I might not last more than a few days, I hope I can keep it up this 
 
 
 
-
-
-
-
