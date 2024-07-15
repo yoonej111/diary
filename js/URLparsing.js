@@ -65,7 +65,7 @@ if (isLocal) {
 // 브라우저의 뒤로가기/앞으로가기 버튼 처리
 window.addEventListener("popstate", (event) => {
   // 뒤로 가는 것은 3가지 케이스가 있을 수 있음
-  // 1. 뒤로 갔을 때 메인 페이지(/), 뒤로 갔을 때 블로그 리스트 페이지(/?menu=diary.md) (실제로는 동일)
+  // 1. 뒤로 갔을 때 메인 페이지(/), 뒤로 갔을 때 블로그 리스트 페이지(/?menu=blog.md) (실제로는 동일)
   // 2. 뒤로 갔을 때 menu 페이지(/?menu=about.md)
   // 3. 뒤로 갔을 때 post 페이지(/?post=20210601_[제목]_[카테고리]_[썸네일]_[저자].md)
 
@@ -74,7 +74,7 @@ window.addEventListener("popstate", (event) => {
   // 뒤로간 url을 가져옴
   let url = new URL(window.location.href);
 
-  if (!url.search.split("=")[1] || url.search.split("=")[1] === "diary.md") {
+  if (!url.search.split("=")[1] || url.search.split("=")[1] === "blog.md") {
     // 블로그 리스트 로딩
     renderBlogList();
   } else if (url.search.split("=")[0] === "?menu") {

@@ -155,14 +155,14 @@ gantt
 
     | Key          | 설명                                       | 예시 값                                                                                                                                                                                                                |
     | ------------ | ------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-    | name         | 파일 이름                                  | "about.md", "diary.md"                                                                                                                                                                                                  |
-    | path         | 파일 경로                                  | "menu/about.md", "menu/diary.md"                                                                                                                                                                                        |
+    | name         | 파일 이름                                  | "about.md", "blog.md"                                                                                                                                                                                                  |
+    | path         | 파일 경로                                  | "menu/about.md", "menu/blog.md"                                                                                                                                                                                        |
     | sha          | 파일의 SHA 체크섬                          | "0953...d5b25", "7f34...f354f"                                                                                                                                                                                         |
     | size         | 파일 크기 (바이트)                         | 856, 6                                                                                                                                                                                                                 |
-    | url          | 파일의 API URL                             | "https://api.github.com/repos/paullabkorea/github_blog/contents/menu/about.md?ref=main", "https://api.github.com/repos/paullabkorea/github_blog/contents/menu/diary.md?ref=main"                                        |
-    | html_url     | 파일의 GitHub 페이지 URL                   | "https://github.com/paullabkorea/github_blog/blob/main/menu/about.md", "https://github.com/paullabkorea/github_blog/blob/main/menu/diary.md"                                                                            |
+    | url          | 파일의 API URL                             | "https://api.github.com/repos/paullabkorea/github_blog/contents/menu/about.md?ref=main", "https://api.github.com/repos/paullabkorea/github_blog/contents/menu/blog.md?ref=main"                                        |
+    | html_url     | 파일의 GitHub 페이지 URL                   | "https://github.com/paullabkorea/github_blog/blob/main/menu/about.md", "https://github.com/paullabkorea/github_blog/blob/main/menu/blog.md"                                                                            |
     | git_url      | 파일의 Git 블롭 URL                        | "https://api.github.com/repos/paullabkorea/github_blog/git/blobs/095349309b14d370ddae691e1e29a753300d5b25", "https://api.github.com/repos/paullabkorea/github_blog/git/blobs/7f347a7d841ac1d1e1cfb1ae12c967e83d1f354f" |
-    | download_url | 파일을 다운로드할 수 있는 URL              | "https://raw.githubusercontent.com/paullabkorea/github_blog/main/menu/about.md", "https://raw.githubusercontent.com/paullabkorea/github_blog/main/menu/diary.md"                                                        |
+    | download_url | 파일을 다운로드할 수 있는 URL              | "https://raw.githubusercontent.com/paullabkorea/github_blog/main/menu/about.md", "https://raw.githubusercontent.com/paullabkorea/github_blog/main/menu/blog.md"                                                        |
     | type         | 파일 타입                                  | "file"                                                                                                                                                                                                                 |
     | \_links      | 관련 링크 (자기 자신, Git, HTML 링크 포함) | 내부 링크 객체                                                                                                                                                                                                         |
 
@@ -224,7 +224,7 @@ gantt
 
 - 과업
 
-  - ~~메인 클릭했을 때 a로 이동하는 것이 아닌 diary.md 페이지로 이동하게 함으로 히스토리 유지 필요~~
+  - ~~메인 클릭했을 때 a로 이동하는 것이 아닌 blog.md 페이지로 이동하게 함으로 히스토리 유지 필요~~
   - 이미지
     - ~~favicon~~
     - ~~default 이미지~~
@@ -253,7 +253,7 @@ gantt
     - URL 파싱하면 됨. 사용자 편의를 위해서는 이렇게 하면 좋지 않을까 생각
     - 뒤에 index.html이 있는 경우 error가 자주 발생됨 => URL 파싱을 통해 해결 필요
   - ~~블로그 figma style 반영~~
-  - ~~'diary.md'파일을 어떻게 할지 (의사결정 필요)~~
+  - ~~'blog.md'파일을 어떻게 할지 (의사결정 필요)~~
   - 조회수
   - disqus 댓글
   - 한국어 가이드, 영어 가이드
@@ -345,14 +345,14 @@ gantt
 
   - 뒤로가기 기능 구현
 
-    - 뒤로 갔을 때 블로그 리스트가 아니라 `diary.md` 파일을 읽어서 렌더링하는 이슈 발생
+    - 뒤로 갔을 때 블로그 리스트가 아니라 `blog.md` 파일을 읽어서 렌더링하는 이슈 발생
     - 해당 문제를 해결하기 위해 URLparsing.js에 아래 함수를 구현하여 해결
     - 모든 코드를 다 옮겨놓은 이유는 3가지 케이스 외에 더 있을 수 있기 때문, 추후 문제가 더 발생할 여지가 있으므로 트러블 슈팅에 기록.
 
     ```javascript
     window.addEventListener("popstate", (event) => {
       // 뒤로 가는 것은 3가지 케이스가 있을 수 있음
-      // 1. 뒤로 갔을 때 메인 페이지(/), 뒤로 갔을 때 블로그 리스트 페이지(/?menu=diary.md) (실제로는 동일)
+      // 1. 뒤로 갔을 때 메인 페이지(/), 뒤로 갔을 때 블로그 리스트 페이지(/?menu=blog.md) (실제로는 동일)
       // 2. 뒤로 갔을 때 menu 페이지(/?menu=about.md)
       // 3. 뒤로 갔을 때 post 페이지(/?post=20210601_[제목]_[카테고리]_[썸네일]_[저자].md)
 
@@ -361,7 +361,7 @@ gantt
       // 뒤로간 url을 가져옴
       let url = new URL(window.location.href);
 
-      if (!url.search.split("=")[1] || url.search.split("=")[1] === "diary.md") {
+      if (!url.search.split("=")[1] || url.search.split("=")[1] === "blog.md") {
         // 블로그 리스트 로딩
         renderBlogList();
       } else if (url.search.split("=")[0] === "?menu") {
